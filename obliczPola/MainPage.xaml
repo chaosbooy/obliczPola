@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="obliczPola.MainPage">
+
+    <Grid x:Name="mainLayout" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+
+        <BoxView Color="DimGray" Grid.Column="1" Margin="20, 10"/>
+
+
+        <HorizontalStackLayout>
+
+            <Label x:Name="title" />
+
+            <ScrollView>
+                <HorizontalStackLayout x:Name="nodeList">
+                    
+                </HorizontalStackLayout>
+            </ScrollView>
+            
+        </HorizontalStackLayout>
+
+        <GraphicsView x:Name="mainCanvas" Grid.Column="1" Margin="20, 10">
+
+            <GraphicsView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="MainCanvasTapped" NumberOfTapsRequired="1" />
+            </GraphicsView.GestureRecognizers>
+        </GraphicsView>
+
+        <VerticalStackLayout Grid.Column="0">
+            <Label Text="Regular Polygon Area" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="AreaChanged" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <HorizontalStackLayout>
+                <Label x:Name="sideNumber" Text="number of sides: 00" Padding="0,0,25,10" IsVisible="False" />
+                <Stepper x:Name="sideStepper" Minimum="0" Maximum="50" IsVisible="False" ValueChanged="SideNumberChanged" />
+            </HorizontalStackLayout>
+            
+            <Label Text="Triangle Area">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="AreaChanged" NumberOfTapsRequired="1"/>
+            </Label.GestureRecognizers>
+            </Label>
+        
+            <Label Text="Quadrangle Area">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="AreaChanged" NumberOfTapsRequired="1" />
+            </Label.GestureRecognizers>
+            </Label>
+
+        </VerticalStackLayout>
+
+    </Grid>
+
+
+</ContentPage>
